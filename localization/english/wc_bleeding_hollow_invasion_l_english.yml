@@ -1,0 +1,12 @@
+﻿l_english:
+ #################################
+ # Base Events
+ #################################
+ wc_bleeding_hollow_invasion.1000.title:0 "The Invasion of Stranglethorn"
+ wc_bleeding_hollow_invasion.1000.desc:0 "Blablabla"
+ wc_bleeding_hollow_invasion.1000.a:0 "So be it"
+ wc_bleeding_hollow_invasion.1000.a_flavor:0 "Blablablablabla"
+ 
+ #################################
+ # Effects
+ #################################

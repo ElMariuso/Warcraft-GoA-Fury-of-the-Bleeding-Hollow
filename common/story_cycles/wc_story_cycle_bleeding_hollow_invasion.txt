@@ -1,0 +1,27 @@
+﻿story_bleeding_hollow_invasion = {
+	on_setup = {
+		story_owner = { add_character_modifier = { modifier = great_invader_modifier } }
+
+	}
+
+	on_end = {
+		story_owner = { 
+			remove_character_modifier = great_invader_modifier 
+			add_character_flag = invalidate_great_invasion_war
+		}
+
+
+	}
+
+	on_owner_death = {
+		if = {
+			limit = {
+				exists = story_owner.primary_heir
+			}
+			#try_to_set_horde_story_owner = { OWNER = story_owner.primary_heir }
+		}
+		else = {
+			end_story = yes
+		}
+	}
+}
