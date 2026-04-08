@@ -9,7 +9,7 @@
 scripted_effect declare_war_on_zulgurub_effect = {
 	title:k_gurubashi.holder = { save_scope_as = zulgurub_holder }
 	
-	scope:kilrogg = {
+	story_owner = {
 		add_character_flag = {
 			flag = free_mongol_cb
 			days = 14
@@ -34,10 +34,6 @@ wc_bleeding_hollow_invasion.0001 = {
 		root = {
 			create_story = story_bleeding_hollow_invasion
 			save_scope_as = story_owner
-		}
-
-		trigger_event = {
-			id = wc_bleeding_hollow_invasion.1000
 		}
 	}
 }
@@ -64,8 +60,10 @@ wc_bleeding_hollow_invasion.1000 = {
 	option = { # Lok'tar Ogar !
 		name = wc_bleeding_hollow_invasion.1000.a
 		flavor = wc_bleeding_hollow_invasion.1000.a_flavor
-		declare_war_on_zulgurub_effect = yes
 
+		root = { save_scope_as = story_owner }
+
+		declare_war_on_zulgurub_effect = yes
 		add_prestige = medium_prestige_gain
 
 		ai_chance = {
@@ -76,35 +74,116 @@ wc_bleeding_hollow_invasion.1000 = {
 
 # Starts the Bleeding Hollow Invasion - Horde notification
 wc_bleeding_hollow_invasion.1001 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1001.title
+	desc = wc_bleeding_hollow_invasion.1001.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1001.a
+		flavor = wc_bleeding_hollow_invasion.1001.a_flavor
+	}
 }
 
 # Starts the Bleeding Hollow Invasion - Zul'Gurub notification
 wc_bleeding_hollow_invasion.1002 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1002.title
+	desc = wc_bleeding_hollow_invasion.1002.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1002.a
+		flavor = wc_bleeding_hollow_invasion.1002.a_flavor
+	}
 }
 
 # Starts the Bleeding Hollow Invasion - Stranglethorn notification
 wc_bleeding_hollow_invasion.1003 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1003.title
+	desc = wc_bleeding_hollow_invasion.1003.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1003.a
+		flavor = wc_bleeding_hollow_invasion.1003.a_flavor
+	}
 }
 
 # The war is too long
 wc_bleeding_hollow_invasion.1004 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1004.title
+	desc = wc_bleeding_hollow_invasion.1004.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1004.a
+		flavor = wc_bleeding_hollow_invasion.1004.a_flavor
+	}
 }
 
 # The Warchief ask for a ceasefire
 wc_bleeding_hollow_invasion.1005 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1005.title
+	desc = wc_bleeding_hollow_invasion.1005.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1005.a
+		flavor = wc_bleeding_hollow_invasion.1005.a_flavor
+	}
 }
 
 # The Bleeding Hollow refused the ceasefire
-wc_bleeding_hollow_invasion.1005 = {
+wc_bleeding_hollow_invasion.1006 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1006.title
+	desc = wc_bleeding_hollow_invasion.1006.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	option = {
+		name = wc_bleeding_hollow_invasion.1006.a
+		flavor = wc_bleeding_hollow_invasion.1006.a_flavor
+	}
 }
 
 # Victory!
-wc_bleeding_hollow_invasion.1006 = {
-}
+#wc_bleeding_hollow_invasion.1007 = {
+#}
 
 # Defeat...
-wc_bleeding_hollow_invasion.1007 = {
-}
+#wc_bleeding_hollow_invasion.1008 = {
+#}
 
 ##################
 # Ongoing War
@@ -113,8 +192,30 @@ wc_bleeding_hollow_invasion.1007 = {
 
 # Ask the Gurubashi tribes for help
 wc_bleeding_hollow_invasion.2000 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.2000.title
+	desc = wc_bleeding_hollow_invasion.2000.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	option = {
+		name = wc_bleeding_hollow_invasion.2000.a
+		flavor = wc_bleeding_hollow_invasion.2000.a_flavor
+	}
 }
 
 # Ask the Stranglethorn inhabitants for help
 wc_bleeding_hollow_invasion.2001 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.2000.title
+	desc = wc_bleeding_hollow_invasion.2000.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	option = {
+		name = wc_bleeding_hollow_invasion.2001.a
+		flavor = wc_bleeding_hollow_invasion.2001.a_flavor
+	}
 }

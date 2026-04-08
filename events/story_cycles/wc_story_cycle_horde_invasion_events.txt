@@ -1556,10 +1556,7 @@ wc_horde_invasion.1504 = {
 			text = wc_horde_invasion.1504.a_tooltip
 		}
 
-		trigger_event = {
-			id = wc_bleeding_hollow_invasion.0001
-			days = 14
-		}
+		trigger_event = wc_bleeding_hollow_invasion.0001
 
 		ai_chance = {
 			base = 200
