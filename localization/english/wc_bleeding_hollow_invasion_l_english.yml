@@ -13,7 +13,7 @@
  wc_bleeding_hollow_invasion.1001.title:0 "The Bleeding Hollow March on Stranglethorn"
  wc_bleeding_hollow_invasion.1001.desc:0 "Kilrogg Deadeye has led the Bleeding Hollow clan into Stranglethorn without consulting the Warchief. The clan has declared war on the Gurubashi trolls of Zul'Gurub."
  wc_bleeding_hollow_invasion.1001.a:0 "Let them prove their worth."
- wc_bleeding_hollow_invasion.1001.a_flavor:0 "The Bleeding Hollow fight for the glory of the Horde. Let them earn their share of conquest."
+ wc_bleeding_hollow_invasion.1001.a_flavor:0 "Kilrogg acts without orders. Again. If the Bleeding Hollow want glory so badly, they can bleed for it — I will deal with the consequences later."
 
  # 1002 — Zul'Gurub notification (fires on k_gurubashi.holder)
  wc_bleeding_hollow_invasion.1002.title:0 "The Orcs Have Come"
@@ -42,30 +42,59 @@
  wc_bleeding_hollow_invasion.1005.b_flavor:0 "Kilrogg Deadeye tears the messenger's scroll apart. The war continues on his terms, not the Warchief's."
 
  # 1006 — Ceasefire rejected (month 10)
- wc_bleeding_hollow_invasion.1006.title:0 "The Iron Hollow Defies the Warchief"
+ wc_bleeding_hollow_invasion.1006.title:0 "The Bleeding Hollow Defies the Warchief"
  wc_bleeding_hollow_invasion.1006.desc:0 "Word spreads through the Horde: Kilrogg Deadeye has refused the Warchief's order to stand down. The Bleeding Hollow fight on in Stranglethorn, heedless of the consequences."
  wc_bleeding_hollow_invasion.1006.a:0 "Victory or death."
  wc_bleeding_hollow_invasion.1006.a_flavor:0 "Kilrogg's one eye blazes with defiance. He will have his conquest, whatever the cost."
 
  # 1007 — Victory (alternative path — reached by refusing ceasefire)
  wc_bleeding_hollow_invasion.1007.title:0 "Stranglethorn Falls"
- wc_bleeding_hollow_invasion.1007.desc:0 "After months of bitter fighting, the Bleeding Hollow have broken the Gurubashi resistance. Zul'Gurub's defenders have been scattered, and Stranglethorn lies open. Against all odds — and against the Warchief's orders — Kilrogg Deadeye has won."
+ wc_bleeding_hollow_invasion.1007.desc:0 "After months of bitter fighting, the Bleeding Hollow have broken the Gurubashi resistance. Zul'Gurub's defenders have been scattered, and Stranglethorn lies open. Against all odds, Kilrogg Deadeye has won."
  wc_bleeding_hollow_invasion.1007.a:0 "We conquer for the Horde."
  wc_bleeding_hollow_invasion.1007.a_flavor:0 "These lands now belong to the Horde. Kilrogg raises the clan's banner over fallen Zul'Gurub, offering the conquest as tribute to the Warchief."
  wc_bleeding_hollow_invasion.1007.b:0 "Stranglethorn belongs to the Bleeding Hollow."
  wc_bleeding_hollow_invasion.1007.b_flavor:0 "The Warchief's orders mean nothing now. The Bleeding Hollow has earned these lands with blood — and with blood, they will keep them."
- wc_bleeding_hollow_invasion.1007.c:0 "We have proven ourselves. Return."
- wc_bleeding_hollow_invasion.1007.c_flavor:0 "Victory secured, Kilrogg leads his warriors back to the Horde — their strength and honor undeniable. The Warchief cannot punish what he cannot ignore."
 
- # 1008 — The Retreat (canonical lore path — default AI choice)
- wc_bleeding_hollow_invasion.1008.title:0 "The Long Retreat"
- wc_bleeding_hollow_invasion.1008.desc:0 "The Horde is fracturing. The Warchief's order stands: the Bleeding Hollow must withdraw from Stranglethorn. After months of blood and sacrifice, the jungle is to be abandoned. Kilrogg Deadeye stands before his warriors, rage blazing in his one eye."
- wc_bleeding_hollow_invasion.1008.a:0 "We retreat with honor."
- wc_bleeding_hollow_invasion.1008.a_flavor:0 "The Bleeding Hollow leave Stranglethorn, but they are not broken. Kilrogg vows to return — and those who know him believe him."
- wc_bleeding_hollow_invasion.1008.b:0 "The Bleeding Hollow does not flee."
- wc_bleeding_hollow_invasion.1008.b_flavor:0 "Kilrogg Deadeye charges into the Gurubashi lines one last time, his warriors at his back. He dies as he lived — defiant, one-eyed, unbowed."
- wc_bleeding_hollow_invasion.1008.c:0 "Perhaps there is another way."
- wc_bleeding_hollow_invasion.1008.c_flavor:0 "Kilrogg sends an envoy to Zul'Gurub under a white banner. The Gurubashi are surprised — but they listen. What emerges from that meeting will surprise everyone."
+ # 1008 — Défaite (chemin canonique — Kilrogg se retire dans le déshonneur)
+ wc_bleeding_hollow_invasion.1008.title:0 "Driven from Stranglethorn"
+ wc_bleeding_hollow_invasion.1008.desc:0 "The order is final. The Bleeding Hollow are to withdraw — defeated, their war over before it could be won. Kilrogg Deadeye stands before the last of his warriors, the jungle at his back. He has nothing to say to them. There is nothing to say."
+ wc_bleeding_hollow_invasion.1008.a:0 "Move out."
+ wc_bleeding_hollow_invasion.1008.a_flavor:0 "The Bleeding Hollow march north in silence. No drums. No warchants. Other clans will hear of this — and Kilrogg knows it. He keeps his one eye forward and says nothing."
+
+ #################################
+ # Warchief & Clan Chief Notifications — 1011-1014
+ #################################
+
+ # 1011 — Warchief notified: Kilrogg defies
+ wc_bleeding_hollow_invasion.1011.title:0 "Kilrogg Defies the Warchief"
+ wc_bleeding_hollow_invasion.1011.desc.blackhand:0 "Word reaches you in Blackrock Spire: Kilrogg Deadeye has torn your messenger's orders apart and marched his warriors deeper into Stranglethorn. He has made his choice — and it is not obedience. Your command means nothing to the Bleeding Hollow. Not today."
+ wc_bleeding_hollow_invasion.1011.desc:0 "Reports arrive from Stranglethorn: Kilrogg Deadeye has rejected the ceasefire order. The Bleeding Hollow fight on, in open defiance of the Warchief's authority. The other clans are watching."
+ wc_bleeding_hollow_invasion.1011.a:0 "He will answer for this."
+ wc_bleeding_hollow_invasion.1011.a_flavor:0 "Victory or defeat, Kilrogg Deadeye will face a reckoning — whether in Stranglethorn or before the Warchief himself."
+
+ # 1012 — Warchief notified: outcome of the invasion
+ wc_bleeding_hollow_invasion.1012.title:0 "The War in Stranglethorn is Over"
+ wc_bleeding_hollow_invasion.1012.desc.independence:0 "Kilrogg Deadeye sends no tribute, offers no surrender. He claims Stranglethorn for himself alone — a vassal no more. The Bleeding Hollow has broken from the Horde. What was once yours is now a wound in the empire you built."
+ wc_bleeding_hollow_invasion.1012.desc.defied:0 "Despite your orders, despite your authority — Kilrogg won. The Bleeding Hollow have taken Stranglethorn, and the clan chief who defied you stands taller than you in the eyes of every warrior who heard of it. The conquest is the Horde's. The glory is his."
+ wc_bleeding_hollow_invasion.1012.desc.backed:0 "The reinforcements you sent through the Dark Portal have done their work. Stranglethorn has fallen. The campaign you supported has succeeded, and the Horde's reach grows. Kilrogg Deadeye delivers the conquest — with your hand behind it."
+ wc_bleeding_hollow_invasion.1012.desc:0 "Stranglethorn has fallen to the Bleeding Hollow. Despite no word from you, Kilrogg Deadeye fought on and won. The conquest belongs to the Horde — but the glory belongs to him alone."
+ wc_bleeding_hollow_invasion.1012.a:0 "Noted."
+ wc_bleeding_hollow_invasion.1012.a_flavor:0 "The Warchief files this away. Every clan chief capable of defiance — or of loyalty — is worth remembering."
+
+ # 1013 — Clan chiefs notified: Kilrogg's victory
+ wc_bleeding_hollow_invasion.1013.title:0 "The Bleeding Hollow Have Won"
+ wc_bleeding_hollow_invasion.1013.desc.independence:0 "Kilrogg Deadeye has done the unthinkable: he marched into Stranglethorn, broke the Gurubashi, and then turned his back on the Warchief. The Bleeding Hollow answers to no one now. They have carved their own domain from the jungle, and neither troll nor orc could stop them."
+ wc_bleeding_hollow_invasion.1013.desc.defied:0 "Kilrogg Deadeye defied the Warchief's ceasefire order and won. He fought on, he took Stranglethorn, and he delivered it to the Horde. The Warchief gave the wrong order — and a lesser chief gave the right one. The clans are whispering."
+ wc_bleeding_hollow_invasion.1013.desc.backed:0 "With the Warchief's reinforcements behind them, the Bleeding Hollow have taken Stranglethorn. Kilrogg Deadeye proved himself in battle, and Blackhand proved himself in judgment. The Horde's southern flank is secured."
+ wc_bleeding_hollow_invasion.1013.desc:0 "Kilrogg Deadeye led the Bleeding Hollow into Stranglethorn — without backing, without orders — and won. Zul'Gurub has fallen. The clan chief who had nothing but will now holds what the Horde could not take."
+ wc_bleeding_hollow_invasion.1013.a:0 "The Bleeding Hollow fights well."
+ wc_bleeding_hollow_invasion.1013.a_flavor:0 "Kilrogg Deadeye is a name worth remembering. Whether as an ally to court or a rival to watch, the Bleeding Hollow's star is rising."
+
+ # 1014 — Clan chiefs notified: Kilrogg's defeat
+ wc_bleeding_hollow_invasion.1014.title:0 "The Bleeding Hollow Retreat from Stranglethorn"
+ wc_bleeding_hollow_invasion.1014.desc:0 "Word has come from the south: the Bleeding Hollow are withdrawing. Kilrogg Deadeye obeyed the Warchief's ceasefire and pulled his warriors from Stranglethorn. The war is over — won by no one, least of all the Bleeding Hollow. The jungle remains as it was. Kilrogg returns with nothing."
+ wc_bleeding_hollow_invasion.1014.a:0 "A failure, then."
+ wc_bleeding_hollow_invasion.1014.a_flavor:0 "The Bleeding Hollow retreated with discipline, at least. But discipline without victory is merely obedience. The other clans will not forget."
 
  #################################
  # Ongoing War — 2000-2999
@@ -77,11 +106,6 @@
  wc_bleeding_hollow_invasion.2000.a:0 "Let them beg."
  wc_bleeding_hollow_invasion.2000.a_flavor:0 "No alliance of jungle-dwellers can stop the Bleeding Hollow. More enemies means more glory."
 
- # 2001 — Stranglethorn unites (month 3, fires on Kilrogg)
- wc_bleeding_hollow_invasion.2001.title:0 "The Jungle Unites Against Us"
- wc_bleeding_hollow_invasion.2001.desc:0 "The call has been answered. Tribes and warriors from across Stranglethorn are joining the Gurubashi defense. The Bleeding Hollow now faces not just Zul'Gurub, but the wrath of the entire region."
- wc_bleeding_hollow_invasion.2001.a:0 "More blood. More glory."
- wc_bleeding_hollow_invasion.2001.a_flavor:0 "Kilrogg smiles — a fiercer fight means a greater victory. Let Stranglethorn send all it has."
 
  #################################
  # Effects
