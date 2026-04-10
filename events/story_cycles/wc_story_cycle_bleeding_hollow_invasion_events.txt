@@ -86,8 +86,7 @@ wc_bleeding_hollow_invasion.1000 = {
 		}
 
 		scope:zulgurub_holder = { trigger_event = wc_bleeding_hollow_invasion.1002 } # Zul'Gurub notification
-# TODO: Meilleur moyen ou optimiser pour envoyer une notification à tous les dirigeants de strangleronce ou présent à strangleronce (sauf les murlocs et parti de la horde)
-		#every_ruler = { # Stranglethorn notification — TODO Phase 3 : vérifier nom région GeographicalRegion dans GoA2
+# TODO: Meilleur moyen ou optimiser pour envoyer une notification à tous les dirigeants de strangleronce ou présent à strangleronce (sauf les murlocs et parti de la horde)	#every_ruler = { # Stranglethorn notification — TODO Phase 3 : vérifier nom région GeographicalRegion dans GoA2
 		#	limit = {
 		#		NOT = { culture = { has_cultural_pillar = heritage_orcish } }
 		#		any_held_title = {

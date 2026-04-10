@@ -1387,7 +1387,7 @@ wc_horde_invasion.1502 = {
 			}
 		}
 
-		# TODO: Start the event who will start the Exodus of the Frostwolves here, like 6 months later
+		# TODOLATER: Start the event who will start the Exodus of the Frostwolves here, like 6 months later
 
 		ai_chance = {
 			base = 200
@@ -1636,20 +1636,20 @@ wc_horde_invasion.1505 = {
 		add_trait = loyal
 		root = { set_relation_friend = { reason = friend_show_loyalty target = scope:guldan } } # Enforce your loyalty
 
-		# TODO: Start Whispers of the Old Gods here
+		# TODOLATER: Start Whispers of the Old Gods here
 
 		ai_chance = {
 			base = 0
 		}
 	}
 
-	# TODO: Readd when Dark Shamanism is in game
+	# TODOLATER: Readd when Dark Shamanism is in game
 	#option = { # Nobody can command us (no canon)
 	#	name = wc_horde_invasion.1505.c
 	#	flavor = wc_horde_invasion.1505.c_flavor
 
-		# TODO: Secret conversion to Dark Shamanism
-		# TODO: Start Whispers of the Old Gods here
+		# TODOLATER: Secret conversion to Dark Shamanism
+		# TODOLATER: Start Whispers of the Old Gods here
 
 	#	ai_chance = {
 	#		base = 0
@@ -1760,7 +1760,7 @@ wc_horde_invasion.1507 = {
 		add_trait = loyal
 		add_piety = medium_piety_gain
 
-		# TODO: Start Whispers of the Old Gods here
+		# TODOLATER: Start Whispers of the Old Gods here
 	}
 }
 
