@@ -86,16 +86,24 @@ wc_bleeding_hollow_invasion.1000 = {
 		}
 
 		scope:zulgurub_holder = { trigger_event = wc_bleeding_hollow_invasion.1002 } # Zul'Gurub notification
-
-		#every_ruler = { # Stranglethorn notification
-		#	if = {
-		#		limit = {
-		#			NOT = { culture = { has_cultural_pillar = heritage_orcish } }
-		#			location = { geographical_region = world_eastern_kingdoms_azeroth_stranglethorn }
+# TODO: Meilleur moyen ou optimiser pour envoyer une notification à tous les dirigeants de strangleronce ou présent à strangleronce (sauf les murlocs et parti de la horde)
+		#every_ruler = { # Stranglethorn notification — TODO Phase 3 : vérifier nom région GeographicalRegion dans GoA2
+		#	limit = {
+		#		NOT = { culture = { has_cultural_pillar = heritage_orcish } }
+		#		any_held_title = {
+		#			tier = county
+		#			capital_province = { geographical_region = world_eastern_kingdoms_azeroth_stranglethorn }
 		#		}
 		#	}
 		#	trigger_event = wc_bleeding_hollow_invasion.1003
 		#}
+# TODO: Troll demandes aux murlocs, réponse des murlocs : MEWMQEMWQM EMQW (non) 
+# Réaction des murlocs : Alliance WEMQMEQWM face aux trolls notification d'alliance des murlocs face aux trolls pendant qu'ils font à la guerre à la Horde. Message des murlocs : RMGMWMRQMEMQWEMQWMEWQME 
+
+		### Chaîne de guerre ###
+		add_character_flag = bleeding_hollow_war_active
+		trigger_event = { id = wc_bleeding_hollow_invasion.2000 days = 60 }
+		trigger_event = { id = wc_bleeding_hollow_invasion.1004 days = 180 }
 
 		ai_chance = {
 			base = 200
@@ -128,6 +136,9 @@ wc_bleeding_hollow_invasion.1001 = {
 	option = {
 		name = wc_bleeding_hollow_invasion.1001.a
 		flavor = wc_bleeding_hollow_invasion.1001.a_flavor
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
@@ -155,6 +166,9 @@ wc_bleeding_hollow_invasion.1002 = {
 	option = {
 		name = wc_bleeding_hollow_invasion.1002.a
 		flavor = wc_bleeding_hollow_invasion.1002.a_flavor
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
@@ -183,6 +197,9 @@ wc_bleeding_hollow_invasion.1003 = {
 	option = {
 		name = wc_bleeding_hollow_invasion.1003.a
 		flavor = wc_bleeding_hollow_invasion.1003.a_flavor
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
@@ -200,9 +217,22 @@ wc_bleeding_hollow_invasion.1004 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
 	option = {
 		name = wc_bleeding_hollow_invasion.1004.a
 		flavor = wc_bleeding_hollow_invasion.1004.a_flavor
+		trigger_event = { id = wc_bleeding_hollow_invasion.1005 days = 90 }
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
@@ -219,9 +249,32 @@ wc_bleeding_hollow_invasion.1005 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
-	option = {
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	lower_left_portrait = title:e_horde.holder
+
+	option = { # Obéir — retraite honorable (lore canonique)
 		name = wc_bleeding_hollow_invasion.1005.a
 		flavor = wc_bleeding_hollow_invasion.1005.a_flavor
+		trigger_event = { id = wc_bleeding_hollow_invasion.1008 }
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # Refuser — Kilrogg ne plie pas (chemin alternatif)
+		name = wc_bleeding_hollow_invasion.1005.b
+		flavor = wc_bleeding_hollow_invasion.1005.b_flavor
+		trigger_event = { id = wc_bleeding_hollow_invasion.1006 days = 30 }
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 
@@ -238,19 +291,161 @@ wc_bleeding_hollow_invasion.1006 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
 	option = {
 		name = wc_bleeding_hollow_invasion.1006.a
 		flavor = wc_bleeding_hollow_invasion.1006.a_flavor
+		trigger_event = { id = wc_bleeding_hollow_invasion.1007 days = 90 }
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
-# Victory!
-#wc_bleeding_hollow_invasion.1007 = {
-#}
+# -----------------------------------------------------------
+# TODO: PROJET FAIRE GRAND EVENT DE CELA
+# wc_bleeding_hollow_invasion.1007 — Victoire sur Zul'Gurub
+# Chemin alternatif : Kilrogg refuse la trêve et remporte la guerre.
+# Trois options : conquête pour la Horde, indépendance, retour triomphant.
+# Fired by: wc_bleeding_hollow_invasion.1006 option a (90-day delay)
+# -----------------------------------------------------------
+wc_bleeding_hollow_invasion.1007 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1007.title
+	desc = wc_bleeding_hollow_invasion.1007.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
 
-# Defeat...
-#wc_bleeding_hollow_invasion.1008 = {
-#}
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+		NOT = { has_character_flag = bleeding_hollow_outcome_decided }
+	}
+
+	immediate = {
+		add_character_flag = bleeding_hollow_outcome_decided
+		remove_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { # Conquête pour la Horde
+		name = wc_bleeding_hollow_invasion.1007.a
+		flavor = wc_bleeding_hollow_invasion.1007.a_flavor
+		add_prestige = major_prestige_gain
+		random_owned_story = {
+			limit = { story_type = story_bleeding_hollow_invasion }
+			save_scope_as = story
+		}
+		if = {
+			limit = { exists = scope:story }
+			scope:story = { end_story = yes }
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = { # Strangleronce appartient au clan Bleeding Hollow
+		name = wc_bleeding_hollow_invasion.1007.b
+		flavor = wc_bleeding_hollow_invasion.1007.b_flavor
+		add_prestige = major_prestige_gain
+		random_owned_story = {
+			limit = { story_type = story_bleeding_hollow_invasion }
+			save_scope_as = story
+		}
+		if = {
+			limit = { exists = scope:story }
+			scope:story = { end_story = yes }
+		}
+		ai_chance = { base = 0 }
+	}
+}
+
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1008 — La Retraite
+# Chemin canonique (lore Warcraft) : la Horde s'effondre,
+# le clan doit se retirer de Strangleronce.
+# Trois options : retraite honorable (lore), mort au combat, paix Gurubashi.
+# Fired by: wc_bleeding_hollow_invasion.1005 option a (immédiat)
+# -----------------------------------------------------------
+wc_bleeding_hollow_invasion.1008 = {
+	type = character_event
+	content_source = dlc_GOA
+	title = wc_bleeding_hollow_invasion.1008.title
+	desc = wc_bleeding_hollow_invasion.1008.desc
+	theme = bleeding_hollow
+	override_background = wc_background_stranglethorn
+
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+		NOT = { has_character_flag = bleeding_hollow_outcome_decided }
+	}
+
+	immediate = {
+		add_character_flag = bleeding_hollow_outcome_decided
+		remove_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = war_defeat
+	}
+
+	option = { # Retraite avec honneur — CANONIQUE lore Warcraft
+		name = wc_bleeding_hollow_invasion.1008.a
+		flavor = wc_bleeding_hollow_invasion.1008.a_flavor
+		add_prestige = minor_prestige_loss
+		random_owned_story = {
+			limit = { story_type = story_bleeding_hollow_invasion }
+			save_scope_as = story
+		}
+		if = {
+			limit = { exists = scope:story }
+			scope:story = { end_story = yes }
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Mourir debout — mort héroïque
+		name = wc_bleeding_hollow_invasion.1008.b
+		flavor = wc_bleeding_hollow_invasion.1008.b_flavor
+		death = { death_reason = death_battle }
+		random_owned_story = {
+			limit = { story_type = story_bleeding_hollow_invasion }
+			save_scope_as = story
+		}
+		if = {
+			limit = { exists = scope:story }
+			scope:story = { end_story = yes }
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = { # Paix avec les Gurubashi — alliance inattendue
+		name = wc_bleeding_hollow_invasion.1008.c
+		flavor = wc_bleeding_hollow_invasion.1008.c_flavor
+		add_prestige = minor_prestige_gain
+		random_owned_story = {
+			limit = { story_type = story_bleeding_hollow_invasion }
+			save_scope_as = story
+		}
+		if = {
+			limit = { exists = scope:story }
+			scope:story = { end_story = yes }
+		}
+		ai_chance = { base = 0 }
+	}
+}
 
 ##################
 # Ongoing War
@@ -271,9 +466,22 @@ wc_bleeding_hollow_invasion.2000 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
 	option = {
 		name = wc_bleeding_hollow_invasion.2000.a
 		flavor = wc_bleeding_hollow_invasion.2000.a_flavor
+		trigger_event = { id = wc_bleeding_hollow_invasion.2001 days = 30 }
+		ai_chance = {
+			base = 100
+		}
 	}
 }
 
@@ -292,8 +500,20 @@ wc_bleeding_hollow_invasion.2001 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
+	trigger = {
+		has_character_flag = bleeding_hollow_war_active
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
 	option = {
 		name = wc_bleeding_hollow_invasion.2001.a
 		flavor = wc_bleeding_hollow_invasion.2001.a_flavor
+		ai_chance = {
+			base = 100
+		}
 	}
 }

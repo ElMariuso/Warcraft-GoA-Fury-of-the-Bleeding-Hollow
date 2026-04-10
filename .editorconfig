@@ -1,0 +1,35 @@
+root = true
+
+# CK3 Jomini script files — tabs, UTF-8
+[*.txt]
+indent_style = tab
+indent_size = 4
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# CK3 localization files — spaces, UTF-8 with BOM (required by CK3)
+[*.yml]
+indent_style = space
+indent_size = 1
+charset = utf-8-bom
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Mod manifest
+[*.mod]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Markdown docs
+[*.md]
+indent_style = space
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = false
+insert_final_newline = true

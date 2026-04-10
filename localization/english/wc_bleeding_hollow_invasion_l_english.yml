@@ -1,12 +1,88 @@
 ﻿l_english:
  #################################
- # Base Events
+ # Base Events — 1000-1099
  #################################
+
+ # 1000 — Invasion starts (main narrative)
  wc_bleeding_hollow_invasion.1000.title:0 "The Invasion of Stranglethorn"
- wc_bleeding_hollow_invasion.1000.desc:0 "Blablabla"
- wc_bleeding_hollow_invasion.1000.a:0 "So be it"
- wc_bleeding_hollow_invasion.1000.a_flavor:0 "Blablablablabla"
- 
+ wc_bleeding_hollow_invasion.1000.desc:0 "Kilrogg Deadeye leads the Bleeding Hollow clan into Stranglethorn, seeking glory and conquest for the Horde. The Gurubashi trolls of Zul'Gurub stand in their way."
+ wc_bleeding_hollow_invasion.1000.a:0 "Lok'tar Ogar!"
+ wc_bleeding_hollow_invasion.1000.a_flavor:0 "The iron will of the Bleeding Hollow cannot be stopped. Stranglethorn will fall."
+
+ # 1001 — Horde notification (fires on Warchief)
+ wc_bleeding_hollow_invasion.1001.title:0 "The Bleeding Hollow March on Stranglethorn"
+ wc_bleeding_hollow_invasion.1001.desc:0 "Kilrogg Deadeye has led the Bleeding Hollow clan into Stranglethorn without consulting the Warchief. The clan has declared war on the Gurubashi trolls of Zul'Gurub."
+ wc_bleeding_hollow_invasion.1001.a:0 "Let them prove their worth."
+ wc_bleeding_hollow_invasion.1001.a_flavor:0 "The Bleeding Hollow fight for the glory of the Horde. Let them earn their share of conquest."
+
+ # 1002 — Zul'Gurub notification (fires on k_gurubashi.holder)
+ wc_bleeding_hollow_invasion.1002.title:0 "The Orcs Have Come"
+ wc_bleeding_hollow_invasion.1002.desc:0 "The orcish clan known as the Bleeding Hollow has declared war on Zul'Gurub. Led by the one-eyed Kilrogg Deadeye, they march through Stranglethorn seeking conquest."
+ wc_bleeding_hollow_invasion.1002.a:0 "Sound the war drums."
+ wc_bleeding_hollow_invasion.1002.a_flavor:0 "The Gurubashi will not yield their lands without a fight. The jungle itself will swallow these invaders."
+
+ # 1003 — Stranglethorn inhabitants notification (rulers in region)
+ wc_bleeding_hollow_invasion.1003.title:0 "Orcs in Stranglethorn"
+ wc_bleeding_hollow_invasion.1003.desc:0 "The Bleeding Hollow clan of orcs has invaded Stranglethorn, declaring war on the Gurubashi. The conflict threatens to engulf the entire region."
+ wc_bleeding_hollow_invasion.1003.a:0 "This is not our war..."
+ wc_bleeding_hollow_invasion.1003.a_flavor:0 "Yet. The war has come to Stranglethorn whether we choose it or not."
+
+ # 1004 — The war drags on (month 6)
+ wc_bleeding_hollow_invasion.1004.title:0 "The War Drags On"
+ wc_bleeding_hollow_invasion.1004.desc:0 "Months have passed since the Bleeding Hollow first marched into Stranglethorn. The Gurubashi resist fiercely, and the jungle claims its toll on orcish morale. The war shows no sign of ending quickly."
+ wc_bleeding_hollow_invasion.1004.a:0 "We push forward."
+ wc_bleeding_hollow_invasion.1004.a_flavor:0 "The Bleeding Hollow do not know retreat. Kilrogg drives his warriors onward through the jungle."
+
+ # 1005 — Warchief demands ceasefire (month 9)
+ wc_bleeding_hollow_invasion.1005.title:0 "The Warchief Demands Peace"
+ wc_bleeding_hollow_invasion.1005.desc:0 "A messenger arrives bearing the Warchief's seal. The Horde needs the Bleeding Hollow's strength elsewhere. Kilrogg is ordered to withdraw from Stranglethorn."
+ wc_bleeding_hollow_invasion.1005.a:0 "We obey the Warchief."
+ wc_bleeding_hollow_invasion.1005.a_flavor:0 "The Bleeding Hollow retreats with honor — their duty to the Horde fulfilled. Kilrogg turns his one eye toward the horizon and vows to return."
+ wc_bleeding_hollow_invasion.1005.b:0 "The Bleeding Hollow answers to no one."
+ wc_bleeding_hollow_invasion.1005.b_flavor:0 "Kilrogg Deadeye tears the messenger's scroll apart. The war continues on his terms, not the Warchief's."
+
+ # 1006 — Ceasefire rejected (month 10)
+ wc_bleeding_hollow_invasion.1006.title:0 "The Iron Hollow Defies the Warchief"
+ wc_bleeding_hollow_invasion.1006.desc:0 "Word spreads through the Horde: Kilrogg Deadeye has refused the Warchief's order to stand down. The Bleeding Hollow fight on in Stranglethorn, heedless of the consequences."
+ wc_bleeding_hollow_invasion.1006.a:0 "Victory or death."
+ wc_bleeding_hollow_invasion.1006.a_flavor:0 "Kilrogg's one eye blazes with defiance. He will have his conquest, whatever the cost."
+
+ # 1007 — Victory (alternative path — reached by refusing ceasefire)
+ wc_bleeding_hollow_invasion.1007.title:0 "Stranglethorn Falls"
+ wc_bleeding_hollow_invasion.1007.desc:0 "After months of bitter fighting, the Bleeding Hollow have broken the Gurubashi resistance. Zul'Gurub's defenders have been scattered, and Stranglethorn lies open. Against all odds — and against the Warchief's orders — Kilrogg Deadeye has won."
+ wc_bleeding_hollow_invasion.1007.a:0 "We conquer for the Horde."
+ wc_bleeding_hollow_invasion.1007.a_flavor:0 "These lands now belong to the Horde. Kilrogg raises the clan's banner over fallen Zul'Gurub, offering the conquest as tribute to the Warchief."
+ wc_bleeding_hollow_invasion.1007.b:0 "Stranglethorn belongs to the Bleeding Hollow."
+ wc_bleeding_hollow_invasion.1007.b_flavor:0 "The Warchief's orders mean nothing now. The Bleeding Hollow has earned these lands with blood — and with blood, they will keep them."
+ wc_bleeding_hollow_invasion.1007.c:0 "We have proven ourselves. Return."
+ wc_bleeding_hollow_invasion.1007.c_flavor:0 "Victory secured, Kilrogg leads his warriors back to the Horde — their strength and honor undeniable. The Warchief cannot punish what he cannot ignore."
+
+ # 1008 — The Retreat (canonical lore path — default AI choice)
+ wc_bleeding_hollow_invasion.1008.title:0 "The Long Retreat"
+ wc_bleeding_hollow_invasion.1008.desc:0 "The Horde is fracturing. The Warchief's order stands: the Bleeding Hollow must withdraw from Stranglethorn. After months of blood and sacrifice, the jungle is to be abandoned. Kilrogg Deadeye stands before his warriors, rage blazing in his one eye."
+ wc_bleeding_hollow_invasion.1008.a:0 "We retreat with honor."
+ wc_bleeding_hollow_invasion.1008.a_flavor:0 "The Bleeding Hollow leave Stranglethorn, but they are not broken. Kilrogg vows to return — and those who know him believe him."
+ wc_bleeding_hollow_invasion.1008.b:0 "The Bleeding Hollow does not flee."
+ wc_bleeding_hollow_invasion.1008.b_flavor:0 "Kilrogg Deadeye charges into the Gurubashi lines one last time, his warriors at his back. He dies as he lived — defiant, one-eyed, unbowed."
+ wc_bleeding_hollow_invasion.1008.c:0 "Perhaps there is another way."
+ wc_bleeding_hollow_invasion.1008.c_flavor:0 "Kilrogg sends an envoy to Zul'Gurub under a white banner. The Gurubashi are surprised — but they listen. What emerges from that meeting will surprise everyone."
+
+ #################################
+ # Ongoing War — 2000-2999
+ #################################
+
+ # 2000 — Gurubashi call for aid (month 2, fires on Kilrogg)
+ wc_bleeding_hollow_invasion.2000.title:0 "Zul'Gurub Calls for Allies"
+ wc_bleeding_hollow_invasion.2000.desc:0 "Intelligence reaches Kilrogg's war camp: the Gurubashi are reaching out to other tribes and powers in Stranglethorn, calling for a coalition to repel the Bleeding Hollow invasion. The jungle stirs with new enemies."
+ wc_bleeding_hollow_invasion.2000.a:0 "Let them beg."
+ wc_bleeding_hollow_invasion.2000.a_flavor:0 "No alliance of jungle-dwellers can stop the Bleeding Hollow. More enemies means more glory."
+
+ # 2001 — Stranglethorn unites (month 3, fires on Kilrogg)
+ wc_bleeding_hollow_invasion.2001.title:0 "The Jungle Unites Against Us"
+ wc_bleeding_hollow_invasion.2001.desc:0 "The call has been answered. Tribes and warriors from across Stranglethorn are joining the Gurubashi defense. The Bleeding Hollow now faces not just Zul'Gurub, but the wrath of the entire region."
+ wc_bleeding_hollow_invasion.2001.a:0 "More blood. More glory."
+ wc_bleeding_hollow_invasion.2001.a_flavor:0 "Kilrogg smiles — a fiercer fight means a greater victory. Let Stranglethorn send all it has."
+
  #################################
  # Effects
  #################################
