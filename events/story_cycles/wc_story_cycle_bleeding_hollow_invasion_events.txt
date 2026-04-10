@@ -22,7 +22,13 @@ scripted_effect declare_war_on_zulgurub_effect = {
 	}
 }
 
-## Start story cycle here
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.0001 — Hidden trigger
+# Creates the story cycle story_bleeding_hollow_invasion
+# and saves scope:story_owner for the invasion chain.
+# Fired by: wc_horde_invasion event chain
+#           (wc_story_cycle_horde_invasion_events.txt:1559)
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.0001 = {
 	type = character_event
 	hidden = yes
@@ -40,10 +46,16 @@ wc_bleeding_hollow_invasion.0001 = {
 
 ##################
 # Base Events
-# 1000-100?
+# 1000-1099
 ##################
 
-# Starts the Bleeding Hollow Invasion
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1000 — Invasion starts
+# Main narrative event: Kilrogg leads the assault on Stranglethorn.
+# Declares war on Zul'Gurub, sends notifications to Horde (1001)
+# and Zul'Gurub holder (1002).
+# Fired by: story_bleeding_hollow_invasion on_setup (14-day delay)
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1000 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -91,7 +103,13 @@ wc_bleeding_hollow_invasion.1000 = {
 	}
 }
 
-# Starts the Bleeding Hollow Invasion - Horde notification
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1001 — Horde notification
+# Notifies the Warchief (e_horde.holder) that the invasion
+# has begun. Shows war declaration as tooltip.
+# Fired by: wc_bleeding_hollow_invasion.1000 option a
+#           (only if story_owner != e_horde.holder)
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1001 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -113,7 +131,12 @@ wc_bleeding_hollow_invasion.1001 = {
 	}
 }
 
-# Starts the Bleeding Hollow Invasion - Zul'Gurub notification
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1002 — Zul'Gurub notification
+# Notifies the Zul'Gurub holder (scope:zulgurub_holder) that
+# the Bleeding Hollow have declared war. Shows declaration tooltip.
+# Fired by: wc_bleeding_hollow_invasion.1000 option a
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1002 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -135,7 +158,13 @@ wc_bleeding_hollow_invasion.1002 = {
 	}
 }
 
-# Starts the Bleeding Hollow Invasion - Stranglethorn notification
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1003 — Stranglethorn inhabitants notification
+# Notifies rulers with lands in Stranglethorn (non-orcish) that
+# an invasion is underway.
+# Fired by: wc_bleeding_hollow_invasion.1000 option a
+#           (currently commented out — TODO: implement trigger)
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1003 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -157,7 +186,12 @@ wc_bleeding_hollow_invasion.1003 = {
 	}
 }
 
-# The war is too long
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1004 — The war drags on
+# Mid-story event: the invasion has lasted too long,
+# morale is fraying.
+# Fired by: TODO — not yet connected to event chain
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1004 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -172,7 +206,11 @@ wc_bleeding_hollow_invasion.1004 = {
 	}
 }
 
-# The Warchief ask for a ceasefire
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1005 — Warchief proposes ceasefire
+# The Horde Warchief sends a request to end the fighting.
+# Fired by: TODO — not yet connected to event chain
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1005 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -187,7 +225,11 @@ wc_bleeding_hollow_invasion.1005 = {
 	}
 }
 
-# The Bleeding Hollow refused the ceasefire
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.1006 — Ceasefire rejected
+# Kilrogg refuses the Warchief's request; the war continues.
+# Fired by: TODO — not yet connected to event chain
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1006 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -212,10 +254,15 @@ wc_bleeding_hollow_invasion.1006 = {
 
 ##################
 # Ongoing War
-# 2000-200?
+# 2000-2999
 ##################
 
-# Ask the Gurubashi tribes for help
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.2000 — Gurubashi call for aid
+# The Zul'Gurub defenders appeal to the broader Gurubashi
+# tribes to join the defense of Stranglethorn.
+# Fired by: TODO — not yet connected to event chain
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.2000 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -230,12 +277,18 @@ wc_bleeding_hollow_invasion.2000 = {
 	}
 }
 
-# Ask the Stranglethorn inhabitants for help
+# -----------------------------------------------------------
+# wc_bleeding_hollow_invasion.2001 — Stranglethorn plea for aid
+# A call to the various Stranglethorn rulers to stand together
+# against the Bleeding Hollow invasion.
+# Fired by: TODO — not yet connected to event chain
+# BUG NOTE: title/desc keys corrected from 2000 → 2001 (localization fix)
+# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.2001 = {
 	type = character_event
 	content_source = dlc_GOA
-	title = wc_bleeding_hollow_invasion.2000.title
-	desc = wc_bleeding_hollow_invasion.2000.desc
+	title = wc_bleeding_hollow_invasion.2001.title
+	desc = wc_bleeding_hollow_invasion.2001.desc
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 

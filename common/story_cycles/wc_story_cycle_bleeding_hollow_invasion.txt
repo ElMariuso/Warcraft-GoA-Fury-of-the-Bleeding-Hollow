@@ -1,3 +1,12 @@
+########################################
+# Story Cycle — wc_bleeding_hollow_invasion
+# Author: Marius
+# Description: Manages the Bleeding Hollow clan invasion of Stranglethorn.
+#   Triggers event 1000 after 14 days; transfers ownership to primary heir
+#   if they have orcish heritage, otherwise ends the story.
+# Created by: wc_bleeding_hollow_invasion.0001 (via wc_horde_invasion chain)
+########################################
+
 ﻿story_bleeding_hollow_invasion = {
 	on_setup = {
 		set_bleeding_hollow_characters_effect = yes
