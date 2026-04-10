@@ -55,6 +55,8 @@ wc_bleeding_hollow_invasion.0001 = {
 # Declares war on Zul'Gurub, sends notifications to Horde (1001)
 # and Zul'Gurub holder (1002).
 # Fired by: story_bleeding_hollow_invasion on_setup (14-day delay)
+# TODO: Meilleur moyen ou optimiser pour envoyer une notification à tous les dirigeants de strangleronce ou présent à strangleronce (sauf les murlocs et parti de la horde)	#every_ruler = { # Stranglethorn notification 
+# TODO Phase 3 : vérifier nom région GeographicalRegion dans GoA2
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1000 = {
 	type = character_event
@@ -86,7 +88,6 @@ wc_bleeding_hollow_invasion.1000 = {
 		}
 
 		scope:zulgurub_holder = { trigger_event = wc_bleeding_hollow_invasion.1002 } # Zul'Gurub notification
-# TODO: Meilleur moyen ou optimiser pour envoyer une notification à tous les dirigeants de strangleronce ou présent à strangleronce (sauf les murlocs et parti de la horde)	#every_ruler = { # Stranglethorn notification — TODO Phase 3 : vérifier nom région GeographicalRegion dans GoA2
 		#	limit = {
 		#		NOT = { culture = { has_cultural_pillar = heritage_orcish } }
 		#		any_held_title = {
@@ -96,10 +97,8 @@ wc_bleeding_hollow_invasion.1000 = {
 		#	}
 		#	trigger_event = wc_bleeding_hollow_invasion.1003
 		#}
-# TODO: Troll demandes aux murlocs, réponse des murlocs : MEWMQEMWQM EMQW (non) 
-# Réaction des murlocs : Alliance WEMQMEQWM face aux trolls notification d'alliance des murlocs face aux trolls pendant qu'ils font à la guerre à la Horde. Message des murlocs : RMGMWMRQMEMQWEMQWMEWQME 
 
-		### Chaîne de guerre ###
+        ### Chaîne de guerre ###
 		add_character_flag = bleeding_hollow_war_active
 		trigger_event = { id = wc_bleeding_hollow_invasion.2000 days = 60 }
 		trigger_event = { id = wc_bleeding_hollow_invasion.1004 days = 180 }
@@ -116,6 +115,7 @@ wc_bleeding_hollow_invasion.1000 = {
 # has begun. Shows war declaration as tooltip.
 # Fired by: wc_bleeding_hollow_invasion.1000 option a
 #           (only if story_owner != e_horde.holder)
+# TODO : Malus opinion du chef de guerre sur Bleeding Hollow "Vous etre con car all in peau rose".
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1001 = {
 	type = character_event
@@ -176,7 +176,7 @@ wc_bleeding_hollow_invasion.1002 = {
 # Notifies rulers with lands in Stranglethorn (non-orcish) that
 # an invasion is underway.
 # Fired by: wc_bleeding_hollow_invasion.1000 option a
-#           (currently commented out — TODO: implement trigger)
+#           (currently commented out — 
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1003 = {
 	type = character_event
@@ -206,7 +206,11 @@ wc_bleeding_hollow_invasion.1003 = {
 # wc_bleeding_hollow_invasion.1004 — The war drags on
 # Mid-story event: the invasion has lasted too long,
 # morale is fraying.
-# Fired by: TODO — not yet connected to event chain
+# Fired by: 
+# TODO: Activer 1 an après le début de la guerre et à l'attention du chef de guerre => Pour dire que Bleeding_hollow 
+# Option 1 -> Cesser le feu et retour au bercail les merdes
+# Option 2 -> Rien à foutre ils sont débiles
+# Option 3 -> Envoyer ressources ou armées (Depuis portail -> POP CRANE RICANANT POV : LES TROLLS SONT COOKED)
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1004 = {
 	type = character_event
@@ -238,8 +242,11 @@ wc_bleeding_hollow_invasion.1004 = {
 # -----------------------------------------------------------
 # wc_bleeding_hollow_invasion.1005 — Warchief proposes ceasefire
 # The Horde Warchief sends a request to end the fighting.
-# Fired by: TODO — not yet connected to event chain
+# Fired by: 
+# TODO: — Option 1 => Ok j'accepte, paix blanche ZulGurub, perte de prestige, perte de reput avec toute la Horde (Looser)
+# Option 2 -> Rien à foutre, je continue la guerre. Rebelle (crime) pour le chef de Guerre.
 # -----------------------------------------------------------
+
 wc_bleeding_hollow_invasion.1005 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -280,7 +287,8 @@ wc_bleeding_hollow_invasion.1005 = {
 # -----------------------------------------------------------
 # wc_bleeding_hollow_invasion.1006 — Ceasefire rejected
 # Kilrogg refuses the Warchief's request; the war continues.
-# Fired by: TODO — not yet connected to event chain
+# Fired by: 
+# TODO: Ajouter le status : Rebelle (crime) pour le chef de Guerre.
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1006 = {
 	type = character_event
@@ -310,11 +318,13 @@ wc_bleeding_hollow_invasion.1006 = {
 }
 
 # -----------------------------------------------------------
-# TODO: PROJET FAIRE GRAND EVENT DE CELA
 # wc_bleeding_hollow_invasion.1007 — Victoire sur Zul'Gurub
 # Chemin alternatif : Kilrogg refuse la trêve et remporte la guerre.
-# Trois options : conquête pour la Horde, indépendance, retour triomphant.
+# Deux options : conquête pour la Horde, indépendance.
 # Fired by: wc_bleeding_hollow_invasion.1006 option a (90-day delay)
+# TODO : Option 1 -> Conquête pour la Horde effectuée
+# Option 2 -> Je quitte la horde, indépendance, chef de guerre obtient revendication de second titre bleeding hollow.
+# Mais toutes les anciennes terres dans les terres foudroyées = Reviens au chef de guerre. Obtention des terres de Zul-gurub
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1007 = {
 	type = character_event
@@ -371,12 +381,12 @@ wc_bleeding_hollow_invasion.1007 = {
 }
 
 # -----------------------------------------------------------
-# wc_bleeding_hollow_invasion.1008 — La Retraite
+# wc_bleeding_hollow_invasion.1008 — Défaite
 # Chemin canonique (lore Warcraft) : la Horde s'effondre,
 # le clan doit se retirer de Strangleronce.
-# Trois options : retraite honorable (lore), mort au combat, paix Gurubashi.
+# Trois options : retraite déshonorable (lore)
 # Fired by: wc_bleeding_hollow_invasion.1005 option a (immédiat)
-# -----------------------------------------------------------
+# TODO: Option 1 -> Défaite déshonorable perte prestige, réputation envers tous les orcs + réputation orbite sanglante spécifiquement# -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1008 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -455,7 +465,12 @@ wc_bleeding_hollow_invasion.1008 = {
 # wc_bleeding_hollow_invasion.2000 — Gurubashi call for aid
 # The Zul'Gurub defenders appeal to the broader Gurubashi
 # tribes to join the defense of Stranglethorn.
-# Fired by: TODO — not yet connected to event chain
+# TODO: TROLLS Deux options:
+# Option 1 -> Rejoindre guerre, Option 2 -> Ne pas rejoindre
+
+# TODO: Troll demandes aux murlocs, réponse des murlocs : MEWMQEMWQM EMQW (non) 
+# Option 1 -> Alliance WEMQMEQWM face aux trolls notification d'alliance des murlocs face aux trolls pendant qu'ils font à la guerre à la Horde.
+# Option 2 -> Osef, on reste des murlocs aKA EWMQMEWQMEMQWWMEWQMEQWMe
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.2000 = {
 	type = character_event
@@ -484,35 +499,4 @@ wc_bleeding_hollow_invasion.2000 = {
 	}
 }
 
-# -----------------------------------------------------------
-# wc_bleeding_hollow_invasion.2001 — Stranglethorn plea for aid
-# A call to the various Stranglethorn rulers to stand together
-# against the Bleeding Hollow invasion.
-# Fired by: TODO — not yet connected to event chain
-# BUG NOTE: title/desc keys corrected from 2000 → 2001 (localization fix)
-# -----------------------------------------------------------
-wc_bleeding_hollow_invasion.2001 = {
-	type = character_event
-	content_source = dlc_GOA
-	title = wc_bleeding_hollow_invasion.2001.title
-	desc = wc_bleeding_hollow_invasion.2001.desc
-	theme = bleeding_hollow
-	override_background = wc_background_stranglethorn
 
-	trigger = {
-		has_character_flag = bleeding_hollow_war_active
-	}
-
-	left_portrait = {
-		character = root
-		animation = personality_bold
-	}
-
-	option = {
-		name = wc_bleeding_hollow_invasion.2001.a
-		flavor = wc_bleeding_hollow_invasion.2001.a_flavor
-		ai_chance = {
-			base = 100
-		}
-	}
-}
