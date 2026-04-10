@@ -6,4 +6,4 @@ tags={
 name="Warcraft-GoA: Fury of the Bleeding Hollow"
 picture="thumbnail.png"
 supported_version="1.18.4"
-path="C:/Users/mariu/OneDrive/Documents/Paradox Interactive/Crusader Kings III/mod/Warcraft-GoA-Fury-of-the-Bleeding-Hollow"
+path="mod/Warcraft-GoA-Fury-of-the-Bleeding-Hollow"
