@@ -1,0 +1,23 @@
+﻿l_english:
+ ########################################
+ # Warcraft: GoA — Fury of the Bleeding Hollow
+ # Localisation — Gilneas / wc_gilneas
+ ########################################
+
+ ########################################
+ # Bookmark
+ ########################################
+
+ # Personnage Genn dans le bookmark bm_invasion_from_draenor_northern_ek
+ genn_character:0 "Genn Greymane"
+ genn_character_subheading:0 "King of Gilneas"
+ genn_character_desc:0 "Genn Greymane has ruled Gilneas with iron certainty since his father's death. He is arrogant, pragmatic, and rarely wrong — which is precisely what makes him dangerous to argue with.\n\nThe Dark Portal has opened in the south. Orcs pour through in numbers that defy belief. The other human kingdoms are already bickering about who leads the response.\n\n#bold Gilneas is not weak. The question is whether Genn is willing to bleed for kingdoms that have never bled for his.#!"
+
+ # Genn — bookmark bm_the_reign_of_chaos (603)
+ genn_character_603:0 "Genn Greymane"
+ genn_character_603_subheading:0 "King Behind the Wall"
+ genn_character_603_desc:0 "The Second War is won. The Horde is broken. Gilneas is safe — or so Genn tells himself.\n\nThe Greymane Wall now seals his kingdom from the world. No Alliance, no refugees, no debts to foreign kings. Genn paid a steep price for this isolation: he has watched allies die at Lordaeron while Gilneas stood apart. The court is divided. Lord Darius Crowley demands the Wall come down; Genn will not yield.\n\n#bold Somewhere to the north, a Scourge stirs. Genn does not know yet that it will one day breach every wall he has ever built.#!"
+ mia_greymane_character:0 "Mia Greymane"
+ liam_greymane_character:0 "Liam Greymane"
+ tess_greymane_character:0 "Tess Greymane"
+
