@@ -367,10 +367,11 @@ wc_bleeding_hollow_invasion.1006 = {
 wc_bleeding_hollow_invasion.1007 = {
 	type = character_event
 	content_source = dlc_GOA
+	window = fullscreen_event
 	title = wc_bleeding_hollow_invasion.1007.title
 	desc = wc_bleeding_hollow_invasion.1007.desc
 	theme = bleeding_hollow
-	override_background = wc_background_stranglethorn
+	override_background = wc_fullscreen_opening_dark_portal
 
 	trigger = {
 		has_character_flag = bleeding_hollow_war_active
@@ -380,11 +381,6 @@ wc_bleeding_hollow_invasion.1007 = {
 	immediate = {
 		add_character_flag = bleeding_hollow_outcome_decided
 		remove_character_flag = bleeding_hollow_war_active
-	}
-
-	left_portrait = {
-		character = root
-		animation = personality_bold
 	}
 
 	option = { # Conquête pour la Horde
@@ -526,10 +522,11 @@ wc_bleeding_hollow_invasion.1007 = {
 wc_bleeding_hollow_invasion.1008 = {
 	type = character_event
 	content_source = dlc_GOA
+	window = fullscreen_event
 	title = wc_bleeding_hollow_invasion.1008.title
 	desc = wc_bleeding_hollow_invasion.1008.desc
 	theme = bleeding_hollow
-	override_background = wc_background_stranglethorn
+	override_background = wc_fullscreen_opening_dark_portal
 
 	trigger = {
 		has_character_flag = bleeding_hollow_war_active
@@ -539,11 +536,6 @@ wc_bleeding_hollow_invasion.1008 = {
 	immediate = {
 		add_character_flag = bleeding_hollow_outcome_decided
 		remove_character_flag = bleeding_hollow_war_active
-	}
-
-	left_portrait = {
-		character = root
-		animation = war_defeat
 	}
 
 	option = { # Défaite — Kilrogg se retire dans le déshonneur
