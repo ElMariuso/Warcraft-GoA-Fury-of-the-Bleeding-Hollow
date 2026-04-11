@@ -1,5 +1,29 @@
-CLAUDE.md
 descriptor.mod
+error.log
+
+CLAUDE.md
+.claude/
+.claudeignore
 findings.md
 task_plan.md
-tools/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+
+# Générés (reproductibles via les scripts tools/)
+docs/wiki-paradox/
+docs/ck3_modding_reference.md
+docs/symbols.json
+
+# Env local
+.env
+logs/
+
+# CK3 Tiger — config machine-spécifique (copier depuis ck3-tiger.conf.example)
+ck3-tiger.conf
+
+# CWTools LSP — config machine-spécifique (copier depuis .cwtools/settings.json.example)
+.cwtools/settings.json
