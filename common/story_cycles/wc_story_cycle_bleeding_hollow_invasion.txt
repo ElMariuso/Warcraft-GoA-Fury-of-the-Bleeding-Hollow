@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Story Cycle — wc_bleeding_hollow_invasion
 # Author: Marius
 # Description: Manages the Bleeding Hollow clan invasion of Stranglethorn.
@@ -22,9 +22,10 @@ story_bleeding_hollow_invasion = {
 	}
 
 	on_end = {
-		story_owner = { 
-			remove_character_modifier = great_invader_modifier 
+		story_owner = {
+			remove_character_modifier = great_invader_modifier
 			add_character_flag = invalidate_great_invasion_war
+			remove_character_flag = bleeding_hollow_war_active
 		}
 	}
 
@@ -33,7 +34,59 @@ story_bleeding_hollow_invasion = {
 			limit = { exists = story_owner.primary_heir }
 			try_to_set_bleeding_hollow_story_owner = { OWNER = story_owner.primary_heir }
 		}
-		else = { end_story = yes  }
+		else = { end_story = yes }
 	}
 
+	# Fallback pour les fins de guerre sans on_war_won_* (paix blanche, etc.)
+	# Pulse toutes les 30 jours : détecte si la guerre s'est terminée sans déclencher l'event.
+	effect_group = {
+		days = 30
+
+		trigger = {
+			story_owner = {
+				has_character_flag = bleeding_hollow_war_active
+				NOT = { has_character_flag = bleeding_hollow_outcome_decided }
+				is_at_war = no
+			}
+		}
+
+		# Victoire : Gurubashi est vassal de Kilrogg (mongol_invasion_war distribue en vassaux)
+		# Ou Kilrogg tient directement un comte de Stranglethorn (option independance)
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					OR = {
+						has_title = title:k_gurubashi
+						has_title = title:c_vekrishe
+						has_title = title:c_fikinnun
+						any_vassal = { has_title = title:k_gurubashi }
+						any_vassal = { has_title = title:d_cape_of_stranglethorn }
+					}
+				}
+			}
+			effect = {
+				story_owner = { trigger_event = wc_bleeding_hollow_invasion.1007 }
+			}
+		}
+
+		# Défaite/statu quo : guerre terminée sans gain (ni titre direct, ni vassal Gurubashi)
+		triggered_effect = {
+			trigger = {
+				story_owner = {
+					NOT = {
+						OR = {
+							has_title = title:k_gurubashi
+							has_title = title:c_vekrishe
+							has_title = title:c_fikinnun
+							any_vassal = { has_title = title:k_gurubashi }
+							any_vassal = { has_title = title:d_cape_of_stranglethorn }
+						}
+					}
+				}
+			}
+			effect = {
+				story_owner = { trigger_event = wc_bleeding_hollow_invasion.1008 }
+			}
+		}
+	}
 }
