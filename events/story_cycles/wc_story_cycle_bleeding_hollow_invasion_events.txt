@@ -795,12 +795,6 @@ wc_bleeding_hollow_invasion.1014 = {
 ##################
 
 # -----------------------------------------------------------
-# wc_bleeding_hollow_invasion.2000 — Gurubashi : décision face à l'invasion
-# Le chef de Zul'Gurub doit choisir comment répondre à l'invasion.
-# Option a : Rallier les tribus trolls à la guerre.
-# Option b : Demander l'aide des murlocs (résultat... variable).
-# Fired by: wc_bleeding_hollow_invasion.1000 option a (60-day delay)
-#           (fires for title:k_gurubashi.holder)
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.2000 = {
 	type = character_event
@@ -814,10 +808,11 @@ wc_bleeding_hollow_invasion.2000 = {
 		character = root
 		animation = war_defender
 	}
-	lower_right_portrait = scope:story_owner
+	lower_right_portrait = {
+		character = scope:story_owner
+	}
 
 	immediate = {
-		character:10005 = { save_scope_as = story_owner }
 		root = { add_character_flag = asked_to_join_the_war }
 
 		title:k_gurubashi.holder = {
@@ -839,20 +834,10 @@ wc_bleeding_hollow_invasion.2000 = {
 		}
 	}
 
-	option = { # Rally the troll rulers in Stranglethorn
+	option = {
 		name = wc_bleeding_hollow_invasion.2000.a
 		flavor = wc_bleeding_hollow_invasion.2000.a_flavor
 
-		# Add every troll ruler vassal of Gurubashi as secondary defender
-		every_ruler = {
-			limit = {
-				culture = { has_cultural_pillar = heritage_troll }
-				is_vassal_of = root
-			}
-			scope:gurubashi_war = { add_defender = prev }
-		}
-
 		ai_chance = { base = 70 }
 	}
-
 }
