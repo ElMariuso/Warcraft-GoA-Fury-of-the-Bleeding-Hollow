@@ -85,7 +85,6 @@ wc_bleeding_hollow_invasion.1000 = {
 
 		### Chaîne de guerre ###
 		add_character_flag = bleeding_hollow_war_active
-		title:k_gurubashi.holder = { trigger_event = { id = wc_bleeding_hollow_invasion.2000 days = 60 } }
 		title:e_horde.holder = { trigger_event = { id = wc_bleeding_hollow_invasion.1004 days = 180 } }
 
 		ai_chance = {
