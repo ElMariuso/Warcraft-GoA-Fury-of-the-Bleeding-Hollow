@@ -294,12 +294,14 @@ wc_horde_invasion.1000 = {
 			}
 		}
 		fallback = yes
+		ai_chance = { base = 100 }
 	}
 
 	# Medivh option
 	option = {
 		trigger = { is_medivh_trigger = yes }
 		name = wc_horde_invasion.1000.medivh
+		ai_chance = { base = 100 }
 	}
 
 	# Magic option
@@ -314,6 +316,7 @@ wc_horde_invasion.1000 = {
 		stress_impact = {
 			base = minor_stress_impact_gain
 		}
+		ai_chance = { base = 100 }
 	}
 
 	# Horde option
@@ -342,6 +345,7 @@ wc_horde_invasion.1000 = {
 			}
 		}
 		show_as_tooltip = { spawn_orc_troops_based_on_culture_effect = yes }
+		ai_chance = { base = 100 }
 	}
 
 	# Warchief option
@@ -349,6 +353,7 @@ wc_horde_invasion.1000 = {
 		trigger = { has_title = title:e_horde }
 		name = wc_horde_invasion.1000.orcish_warchief_and_shadowlord
 		show_as_tooltip = { spawn_base_troops_warchief_effect = yes }
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -365,12 +370,15 @@ wc_horde_invasion.1001 = {
 	option = { # The orcs need their warchief!
 		trigger = {
 			trigger_if = {
-				limit = { NOT = { has_game_rule = wc_collapse_of_the_first_horde_never } } # If has this gamerule, always available
-				trigger_if = {
-					limit = { NOT = { has_game_rule = wc_collapse_of_the_first_horde_always } }
-					prestige_level >= max_prestige_level
-				}
-			trigger_else = { always = no }
+				limit = { has_game_rule = wc_collapse_of_the_first_horde_always }
+				always = yes # bypass prestige check
+			}
+			trigger_else_if = {
+				limit = { has_game_rule = wc_collapse_of_the_first_horde_never }
+				always = no # never trigger collapse
+			}
+			trigger_else = {
+				prestige_level >= max_prestige_level
 			}
 		}
 		show_as_unavailable = { NOT = { has_game_rule = wc_collapse_of_the_first_horde_always } }
@@ -481,6 +489,10 @@ wc_horde_invasion.1002 = {
 	theme = horde
 	override_background = { reference = wc_background_dark_portal }
 	left_portrait = scope:warchief
+
+	immediate = {
+		title:e_horde.holder = { save_scope_as = warchief }
+	}
 
 	option = { # Stay
 		trigger = {
@@ -633,13 +645,19 @@ wc_horde_invasion.1003 = {
 	override_background = { reference = wc_background_dark_portal }
 	left_portrait = scope:warchief
 
+	immediate = {
+		title:e_horde.holder = { save_scope_as = warchief }
+	}
+
 	option = { # Leave
 		trigger = { culture = { has_cultural_pillar = heritage_orcish } }
 		name = wc_horde_invasion.1003.a
+		ai_chance = { base = 100 }
 	}
 	option = {
 		trigger = { NOT = { culture = { has_cultural_pillar = heritage_orcish } }}
 		name = wc_horde_invasion.1003.b
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -716,6 +734,7 @@ wc_horde_invasion.1004 = {
 				trigger_event = wc_horde_invasion.1007
 			}
 		}
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -756,6 +775,10 @@ wc_horde_invasion.1005 = {
 		character = root
 	}
 
+	immediate = {
+		title:e_horde.holder = { save_scope_as = warchief }
+	}
+
 	option = {
 		name = {
 			text = {
@@ -773,6 +796,7 @@ wc_horde_invasion.1005 = {
 			}
 		}
 		show_as_tooltip = { declare_war_on_stormwind_effect = yes }
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -810,10 +834,11 @@ wc_horde_invasion.1006 = {
 			}
 		}
 		show_as_tooltip = { declare_war_on_stormwind_effect = yes }
+		ai_chance = { base = 100 }
 	}
 }
 
-# Assault on Stormwind - Stormwind notification
+#Assault on Stormwind - Stormwind notification
 wc_horde_invasion.1007 = {
 	type = character_event
 	content_source = dlc_GOA
@@ -995,7 +1020,7 @@ wc_horde_invasion.1007 = {
 wc_horde_invasion.1008 = {
 	type = character_event
 	content_source = dlc_GOA
-	title = wc_horde_invasion.1007.title
+	title = wc_horde_invasion.1008.title
 	desc = wc_horde_invasion.1008.desc
 	theme = horde
 	
@@ -1199,12 +1224,11 @@ wc_horde_invasion.1501 = {
 		flavor = wc_horde_invasion.1501.a.flavor
 		trigger = {
 			any_hooked_character = {
-				count > 0
-                root = {
-                    has_hook_of_type = {
-                        target = prev
-                        type = loyalty_hook
-                    }
+				root = {
+					has_hook_of_type = {
+						target = prev
+						type = loyalty_hook
+					}
 				}
 			}
 		}
@@ -1246,13 +1270,14 @@ wc_horde_invasion.1501 = {
 		name = wc_horde_invasion.1501.a_alternative
 		flavor = wc_horde_invasion.1501.a_alternative.flavor
 		trigger = {
-			any_hooked_character = {
-				count <= 0
-                root = {
-                    has_hook_of_type = {
-                        target = prev
-                        type = loyalty_hook
-                    }
+			NOT = {
+				any_hooked_character = {
+					root = {
+						has_hook_of_type = {
+							target = prev
+							type = loyalty_hook
+						}
+					}
 				}
 			}
 		}
@@ -1405,6 +1430,7 @@ wc_horde_invasion.1502 = {
 		}
 
 		add_piety = medium_piety_gain
+		ai_chance = { base = 100 }
 	}
 
 	option = { # I should follow the other clans for now (not canon)
@@ -1444,6 +1470,7 @@ wc_horde_invasion.1503 = {
 	artifact = {
 		target = scope:doomhammer_artifact
 		position = lower_center_portrait
+		trigger = { exists = scope:doomhammer_artifact }
 	}
 
 	immediate = {
@@ -1708,6 +1735,8 @@ wc_horde_invasion.1506 = {
 		flavor = wc_horde_invasion.1506.a_flavor
 
 		show_as_tooltip = { create_artifact_twilight_canticle_effect = { OWNER = root } }
+		scope:devoted = { kill_character = yes }
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -1746,6 +1775,11 @@ wc_horde_invasion.1507 = {
 		# Secret conversion to Twilight's Hammer
 		show_as_tooltip = { set_character_secret_faith = faith:twilights_hammer_cult }
 		make_character_crypto_religionist_effect = { CRYPTO_RELIGION = faith:twilights_hammer_cult }
+		ai_chance = {
+			base = 100
+			modifier = { add = 50; has_trait = zealous }
+			modifier = { add = 25; has_trait = lunatic_1 }
+		}
 	}
 
 	option = { # Our masters are the demons now
@@ -1761,6 +1795,11 @@ wc_horde_invasion.1507 = {
 		add_piety = medium_piety_gain
 
 		# TODOLATER: Start Whispers of the Old Gods here
+		ai_chance = {
+			base = 0
+			modifier = { add = 50; has_trait = cynical }
+			modifier = { add = 25; has_trait = loyal }
+		}
 	}
 }
 
@@ -1826,8 +1865,9 @@ wc_horde_invasion.9000 = {
 			NEW_TITLE = scope:county
 		}
 		change_culture_and_faith_horde_effect = yes
+		ai_chance = { base = 100 }
 	}
-	
+
 	# Kill them all! - Notification
 	option = {
 		trigger = {
@@ -1838,16 +1878,18 @@ wc_horde_invasion.9000 = {
 		show_as_tooltip = {
 			horde_bloodshed_effect = { LOCATION = scope:county }
 		}
+		ai_chance = { base = 100 }
 	}
 
 	option = {
 		name = wc_horde_invasion.9000.b
 		custom_tooltip = wc_horde_invasion.9000.tooltip.b
 		trigger = { is_from_the_horde_trigger = no }
-		
+
 		show_as_tooltip = {
 			horde_bloodshed_effect = { LOCATION = scope:county }
 		}
+		ai_chance = { base = 100 }
 	}
 }
 
