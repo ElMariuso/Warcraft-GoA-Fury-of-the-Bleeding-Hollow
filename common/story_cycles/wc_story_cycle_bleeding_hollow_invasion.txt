@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Story Cycle — wc_bleeding_hollow_invasion
 # Author: Marius
 # Description: Manages the Bleeding Hollow clan invasion of Stranglethorn.
@@ -22,9 +22,10 @@ story_bleeding_hollow_invasion = {
 	}
 
 	on_end = {
-		story_owner = { 
-			remove_character_modifier = great_invader_modifier 
+		story_owner = {
+			remove_character_modifier = great_invader_modifier
 			add_character_flag = invalidate_great_invasion_war
+			remove_character_flag = bleeding_hollow_war_active
 		}
 	}
 
@@ -33,7 +34,7 @@ story_bleeding_hollow_invasion = {
 			limit = { exists = story_owner.primary_heir }
 			try_to_set_bleeding_hollow_story_owner = { OWNER = story_owner.primary_heir }
 		}
-		else = { end_story = yes  }
+		else = { end_story = yes }
 	}
 
 	effect_group = {  # Zul'gurub ask for help

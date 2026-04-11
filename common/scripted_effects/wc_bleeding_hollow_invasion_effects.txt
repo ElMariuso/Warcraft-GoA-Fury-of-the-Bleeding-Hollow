@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Scripted Effects — wc_bleeding_hollow_invasion
 # Author: Marius
 # Description: Reusable effect blocks for the Bleeding Hollow invasion story cycle
@@ -9,7 +9,7 @@
 # Saves Kilrogg Deadeye (character:10005) as scope:kilrogg
 # Called by: story_bleeding_hollow_invasion on_setup
 # -----------------------------------------------------------
-﻿set_bleeding_hollow_characters_effect = {
+set_bleeding_hollow_characters_effect = {
 	character:10005 = {
 		save_scope_as = kilrogg
 	}

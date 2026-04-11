@@ -1,0 +1,6 @@
+{
+  "_comment": "Copier en settings.json et renseigner les chemins. settings.json est gitignore.",
+  "rules_folder": "/path/to/cwtools-ck3-config",
+  "game_folder": "/path/to/Crusader Kings III",
+  "game": "CK3"
+}

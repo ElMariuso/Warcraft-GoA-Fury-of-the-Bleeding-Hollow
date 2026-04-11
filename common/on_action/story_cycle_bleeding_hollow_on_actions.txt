@@ -1,1 +1,58 @@
-﻿
+﻿########################################
+# On Actions — wc_bleeding_hollow_invasion
+# Author: Marius
+# Description: Connecte la fin de la guerre contre Zul'''Gurub aux evenements narratifs.
+#
+# Reference GoA2 (war_on_actions.txt, ligne 943) :
+#   "effect fires on THIS tick, events fires on the NEXT tick,
+#    and the war gets destroyed between this tick and the next."
+#   => Obligatoire d'''utiliser `effect` et non `events`.
+#
+# Scopes disponibles dans on_war_won_attacker / on_war_won_defender :
+#   ROOT           = primary attacker
+#   scope:attacker = attaquant primaire
+#   scope:defender = defenseur primaire
+#   scope:war      = l'''objet guerre
+#
+# Protection contre double-declenchement : flag bleeding_hollow_outcome_decided
+# positionne dans l'''immediate block de 1007/1008.
+########################################
+
+# Kilrogg remporte la guerre — victoire narrative
+on_war_won_attacker = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = {
+					has_character_flag = bleeding_hollow_war_active
+					NOT = { has_character_flag = bleeding_hollow_outcome_decided }
+				}
+				# Diagnostic : flag positionne pour confirmer execution du hook
+				add_character_flag = {
+					flag = debug_bh_attacker_hook_fired
+					days = 60
+				}
+				trigger_event = wc_bleeding_hollow_invasion.1007
+			}
+		}
+	}
+}
+
+# Zul'''Gurub repousse Kilrogg — defaite narrative
+# scope:attacker = Kilrogg (le perdant dans ce contexte)
+on_war_won_defender = {
+	effect = {
+		scope:attacker = {
+			if = {
+				limit = {
+					has_character_flag = bleeding_hollow_war_active
+					NOT = { has_character_flag = bleeding_hollow_outcome_decided }
+				}
+				trigger_event = wc_bleeding_hollow_invasion.1008
+			}
+		}
+	}
+}
+
+# Paix blanche : capturee par l'''effect_group du story cycle (pulse 30 jours)
+# car on_war_won_* ne s'''execute pas lors d'''une paix blanche.
