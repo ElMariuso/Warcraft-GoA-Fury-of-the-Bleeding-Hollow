@@ -804,83 +804,44 @@ wc_bleeding_hollow_invasion.2000 = {
 	theme = bleeding_hollow
 	override_background = wc_background_stranglethorn
 
-	trigger = {
-		character:10005 = { has_character_flag = bleeding_hollow_war_active }
-	}
-
-	immediate = {
-		character:10005 = { save_scope_as = kilrogg }
-	}
-
 	left_portrait = {
 		character = root
-		animation = personality_bold
+		animation = war_defender
 	}
-	right_portrait = {
-		character = scope:kilrogg
-		animation = war_attacker
+	lower_right_portrait = scope:story_owner
+
+	immediate = {
+		root = { add_character_flag = asked_to_join_the_war }
+
+		title:k_gurubashi.holder = {
+			any_war = {
+				limit = {
+					OR = {
+						AND = {
+							attacker = prev
+							defender = scope:story_owner
+						}
+						AND = {
+							attacker = scope:story_owner
+							defender = prev
+						}
+					}
+				}
+				save_scope_as = gurubashi_war
+			}
+		}
 	}
 
-	option = { # Rallier les tribus — la jungle s'unit contre les Orcs
+	option = { # Join the war
 		name = wc_bleeding_hollow_invasion.2000.a
 		flavor = wc_bleeding_hollow_invasion.2000.a_flavor
-		scope:kilrogg = {
-			trigger_event = { id = wc_bleeding_hollow_invasion.2003 }
-		}
-		scope:kilrogg = {
-			trigger_event = { id = wc_bleeding_hollow_invasion.2001 days = 30 }
-		}
+
+		scope:gurubashi_war = { add_defender = root }
+
 		ai_chance = { base = 70 }
 	}
 
-	option = { # Demander aux murlocs — au désespoir tout recours
-		name = wc_bleeding_hollow_invasion.2000.b
-		flavor = wc_bleeding_hollow_invasion.2000.b_flavor
-		every_ruler = {
-			limit = {
-				culture = { has_cultural_pillar = heritage_murloc }
-				any_held_title = {
-					tier = county
-					capital_province = { geographical_region = world_eastern_kingdoms_azeroth_stranglethorn }
-				}
-			}
-			trigger_event = { id = wc_bleeding_hollow_invasion.2004 }
-		}
-		scope:kilrogg = {
-			trigger_event = { id = wc_bleeding_hollow_invasion.2001 days = 45 }
-		}
-		ai_chance = { base = 30 }
-	}
-}
-
-
-# -----------------------------------------------------------
-# wc_bleeding_hollow_invasion.2004 — POV Murloc : Zul'Gurub demande de l'aide
-# Chaque chef murloc de Stranglethorn reçoit la demande de Zul'Gurub.
-# Fired by: wc_bleeding_hollow_invasion.2000 option b
-# -----------------------------------------------------------
-wc_bleeding_hollow_invasion.2004 = {
-	type = character_event
-	content_source = dlc_GOA
-	title = wc_bleeding_hollow_invasion.2004.title
-	desc = wc_bleeding_hollow_invasion.2004.desc
-	theme = bleeding_hollow
-	override_background = wc_background_stranglethorn
-
-	left_portrait = {
-		character = root
-		animation = scheme
-	}
-
-	option = { # Acquiescer... vaguement (alliance)
-		name = wc_bleeding_hollow_invasion.2004.a
-		flavor = wc_bleeding_hollow_invasion.2004.a_flavor
-		ai_chance = { base = 20 }
-	}
-
-	option = { # MEWMQEMWQM EMQW (non)
-		name = wc_bleeding_hollow_invasion.2004.b
-		flavor = wc_bleeding_hollow_invasion.2004.b_flavor
-		ai_chance = { base = 80 }
-	}
+	#option = { # Refuse to join the war
+	#	ai_chance = { base = 70 }
+	#}
 }
