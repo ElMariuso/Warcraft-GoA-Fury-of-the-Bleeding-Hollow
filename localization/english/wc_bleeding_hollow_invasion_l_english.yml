@@ -27,11 +27,15 @@
  wc_bleeding_hollow_invasion.1003.a:0 "This is not our war..."
  wc_bleeding_hollow_invasion.1003.a_flavor:0 "Yet. The war has come to Stranglethorn whether we choose it or not."
 
- # 1004 — The war drags on (month 6)
- wc_bleeding_hollow_invasion.1004.title:0 "The War Drags On"
- wc_bleeding_hollow_invasion.1004.desc:0 "Months have passed since the Bleeding Hollow first marched into Stranglethorn. The Gurubashi resist fiercely, and the jungle claims its toll on orcish morale. The war shows no sign of ending quickly."
- wc_bleeding_hollow_invasion.1004.a:0 "We push forward."
- wc_bleeding_hollow_invasion.1004.a_flavor:0 "The Bleeding Hollow do not know retreat. Kilrogg drives his warriors onward through the jungle."
+ # 1004 — Warchief receives report from Stranglethorn (month 6)
+ wc_bleeding_hollow_invasion.1004.title:0 "Word from Stranglethorn"
+ wc_bleeding_hollow_invasion.1004.desc:0 "A courier arrives bearing grim news from the south. Kilrogg Deadeye has marched the Bleeding Hollow into Stranglethorn and declared war on the Gurubashi — without orders, without counsel. The war drags on. The Warchief must decide what the Horde's answer will be."
+ wc_bleeding_hollow_invasion.1004.a:0 "Order a ceasefire. Immediately."
+ wc_bleeding_hollow_invasion.1004.a_flavor:0 "Blackhand's seal is pressed into the wax. The Bleeding Hollow will stand down — or they will learn what defying the Warchief truly costs."
+ wc_bleeding_hollow_invasion.1004.b:0 "Their war. Their problem."
+ wc_bleeding_hollow_invasion.1004.b_flavor:0 "Blackhand tosses the courier's report aside. If the Bleeding Hollow want glory badly enough to bleed for it, let them. The Horde owes them nothing — and neither does he."
+ wc_bleeding_hollow_invasion.1004.c:0 "Send reinforcements through the Dark Portal."
+ wc_bleeding_hollow_invasion.1004.c_flavor:0 "Blackhand drums his fingers once against the war table. Kilrogg didn't ask. He never does. But the Bleeding Hollow are too valuable to waste in a jungle, and Stranglethorn is worth having. Warriors move."
 
  # 1005 — Warchief demands ceasefire (month 9)
  wc_bleeding_hollow_invasion.1005.title:0 "The Warchief Demands Peace"
@@ -60,6 +64,18 @@
  wc_bleeding_hollow_invasion.1008.desc:0 "The order is final. The Bleeding Hollow are to withdraw — defeated, their war over before it could be won. Kilrogg Deadeye stands before the last of his warriors, the jungle at his back. He has nothing to say to them. There is nothing to say."
  wc_bleeding_hollow_invasion.1008.a:0 "Move out."
  wc_bleeding_hollow_invasion.1008.a_flavor:0 "The Bleeding Hollow march north in silence. No drums. No warchants. Other clans will hear of this — and Kilrogg knows it. He keeps his one eye forward and says nothing."
+
+ # 1009 — Kilrogg notified: reinforcements incoming
+ wc_bleeding_hollow_invasion.1009.title:0 "The Dark Portal Opens"
+ wc_bleeding_hollow_invasion.1009.desc:0 "A tremor in the air. A tear of light south of the treeline. Warriors pour through the Dark Portal — not many, but enough. The Warchief has sent reinforcements. Kilrogg did not ask for them. He will not thank Blackhand for sending them. But fresh blades are fresh blades, and Stranglethorn does not care about pride."
+ wc_bleeding_hollow_invasion.1009.a:0 "The Bleeding Hollow will finish what we started."
+ wc_bleeding_hollow_invasion.1009.a_flavor:0 "The new warriors fall into formation. Kilrogg doesn't look at them. He looks forward — into the jungle, toward Zul'Gurub. The Warchief bought himself a share of this conquest. So be it."
+
+ # 1010 — Zul'Gurub notified: orc reinforcements arrive
+ wc_bleeding_hollow_invasion.1010.title:0 "More Orcs Pour Through"
+ wc_bleeding_hollow_invasion.1010.desc:0 "The ground trembles. The sky tears open south of the Stranglethorn canopy, and a new wave of orc warriors spills through the Dark Portal onto Gurubashi soil. The first assault was one clan's ambition. This is something else. The Horde itself has turned its gaze on Zul'Gurub."
+ wc_bleeding_hollow_invasion.1010.a:0 "Zul'Gurub will not fall."
+ wc_bleeding_hollow_invasion.1010.a_flavor:0 "The war drums sound louder. The Gurubashi answer with their own. The jungle has swallowed armies before — and it will swallow these too."
 
  #################################
  # Warchief & Clan Chief Notifications — 1011-1014
@@ -100,11 +116,11 @@
  # Ongoing War — 2000-2999
  #################################
 
- # 2000 — Gurubashi call for aid (month 2, fires on Kilrogg)
- wc_bleeding_hollow_invasion.2000.title:0 "Zul'Gurub Calls for Allies"
- wc_bleeding_hollow_invasion.2000.desc:0 "Intelligence reaches Kilrogg's war camp: the Gurubashi are reaching out to other tribes and powers in Stranglethorn, calling for a coalition to repel the Bleeding Hollow invasion. The jungle stirs with new enemies."
- wc_bleeding_hollow_invasion.2000.a:0 "Let them beg."
- wc_bleeding_hollow_invasion.2000.a_flavor:0 "No alliance of jungle-dwellers can stop the Bleeding Hollow. More enemies means more glory."
+ # 2000 — Gurubashi call for aid (month 2, fires on k_gurubashi.holder)
+ wc_bleeding_hollow_invasion.2000.title:0 "The Jungle Must Answer"
+ wc_bleeding_hollow_invasion.2000.desc:0 "The Bleeding Hollow have come deep into Stranglethorn, and Zul'Gurub cannot hold them alone. The other tribes of the jungle — Gurubashi blood, troll kin — must choose: stand together or watch the orcs take it all. The war drums wait for an answer."
+ wc_bleeding_hollow_invasion.2000.a:0 "Send the call. Every troll who can fight must fight."
+ wc_bleeding_hollow_invasion.2000.a_flavor:0 "The drums carry across Stranglethorn. The tribes know what the signal means. Zul'Gurub will not stand alone — and the Bleeding Hollow will find that the jungle itself has teeth."
 
 
  #################################

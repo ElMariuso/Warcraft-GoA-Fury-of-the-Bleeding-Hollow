@@ -54,11 +54,14 @@ wc_bleeding_hollow_invasion.1000 = {
 	}
 	lower_right_portrait = scope:zulgurub_holder
 
+	immediate = {
+		title:k_gurubashi.holder = { save_scope_as = zulgurub_holder }
+		root = { save_scope_as = story_owner }
+	}
+
 	option = { # Lok'tar Ogar !
 		name = wc_bleeding_hollow_invasion.1000.a
 		flavor = wc_bleeding_hollow_invasion.1000.a_flavor
-
-		root = { save_scope_as = story_owner }
 
 		declare_war_on_zulgurub_effect = yes
 		add_prestige = medium_prestige_gain
@@ -114,7 +117,10 @@ wc_bleeding_hollow_invasion.1001 = {
 	}
 	lower_right_portrait = scope:story_owner
 
-	immediate = { show_as_tooltip = { declare_war_on_zulgurub_effect = yes } }
+	immediate = {
+		character:10005 = { save_scope_as = story_owner }
+		show_as_tooltip = { declare_war_on_zulgurub_effect = yes }
+	}
 
 	option = {
 		name = wc_bleeding_hollow_invasion.1001.a
@@ -148,7 +154,10 @@ wc_bleeding_hollow_invasion.1002 = {
 	}
 	lower_right_portrait = scope:story_owner
 
-	immediate = { show_as_tooltip = { declare_war_on_zulgurub_effect = yes } }
+	immediate = {
+		character:10005 = { save_scope_as = story_owner }
+		show_as_tooltip = { declare_war_on_zulgurub_effect = yes }
+	}
 
 	option = {
 		name = wc_bleeding_hollow_invasion.1002.a
@@ -164,7 +173,6 @@ wc_bleeding_hollow_invasion.1002 = {
 # Notifies rulers with lands in Stranglethorn (non-orcish) that
 # an invasion is underway.
 # Fired by: wc_bleeding_hollow_invasion.1000 option a
-#           (currently commented out — 
 # -----------------------------------------------------------
 wc_bleeding_hollow_invasion.1003 = {
 	type = character_event
@@ -179,7 +187,10 @@ wc_bleeding_hollow_invasion.1003 = {
 	}
 	lower_right_portrait = scope:story_owner
 
-	immediate = { show_as_tooltip = { declare_war_on_zulgurub_effect = yes } }
+	immediate = {
+		character:10005 = { save_scope_as = story_owner }
+		show_as_tooltip = { declare_war_on_zulgurub_effect = yes }
+	}
 
 	option = {
 		name = wc_bleeding_hollow_invasion.1003.a
@@ -276,17 +287,24 @@ wc_bleeding_hollow_invasion.1005 = {
 		has_character_flag = bleeding_hollow_war_active
 	}
 
+	immediate = {
+		title:e_horde.holder = { save_scope_as = warchief }
+	}
+
 	left_portrait = {
 		character = root
 		animation = personality_bold
 	}
-	lower_left_portrait = title:e_horde.holder
+	lower_left_portrait = {
+		character = scope:warchief
+		animation = anger
+	}
 
 	option = { # Obéir — retraite honorable (lore canonique)
 		name = wc_bleeding_hollow_invasion.1005.a
 		flavor = wc_bleeding_hollow_invasion.1005.a_flavor
 		every_character_war = {
-			limit = { is_attacker = root }
+			limit = { attacker = root }
 			end_war = white_peace
 		}
 		add_prestige = medium_prestige_loss
@@ -332,10 +350,6 @@ wc_bleeding_hollow_invasion.1006 = {
 
 	trigger = {
 		has_character_flag = bleeding_hollow_war_active
-	}
-
-	immediate = {
-		add_character_flag = bleeding_hollow_rebel
 	}
 
 	left_portrait = {
@@ -571,6 +585,7 @@ wc_bleeding_hollow_invasion.1008 = {
 			limit = { exists = scope:story }
 			scope:story = { end_story = yes }
 		}
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -803,10 +818,11 @@ wc_bleeding_hollow_invasion.2000 = {
 	lower_right_portrait = scope:story_owner
 
 	immediate = {
+		character:10005 = { save_scope_as = story_owner }
 		root = { add_character_flag = asked_to_join_the_war }
 
 		title:k_gurubashi.holder = {
-			any_war = {
+			random_war = {
 				limit = {
 					OR = {
 						AND = {
@@ -824,16 +840,20 @@ wc_bleeding_hollow_invasion.2000 = {
 		}
 	}
 
-	option = { # Join the war
+	option = { # Rally the troll rulers in Stranglethorn
 		name = wc_bleeding_hollow_invasion.2000.a
 		flavor = wc_bleeding_hollow_invasion.2000.a_flavor
 
-		scope:gurubashi_war = { add_defender = root }
+		# Add every troll ruler vassal of Gurubashi as secondary defender
+		every_ruler = {
+			limit = {
+				culture = { has_cultural_pillar = heritage_troll }
+				is_vassal_of = root
+			}
+			scope:gurubashi_war = { add_defender = prev }
+		}
 
 		ai_chance = { base = 70 }
 	}
 
-	#option = { # Refuse to join the war
-	#	ai_chance = { base = 70 }
-	#}
 }
