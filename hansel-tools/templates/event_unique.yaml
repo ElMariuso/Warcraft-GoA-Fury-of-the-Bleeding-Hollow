@@ -1,0 +1,27 @@
+# Template 1xxx — Event unique (one-shot, notification)
+# Déclenché une seule fois depuis on_setup ou immediate d'un autre event.
+
+namespace: wc_bleeding_hollow_invasion
+theme: martial
+content_source: dlc_GOA
+
+events:
+  - id: 1000
+    type: character_event
+    background: wc_background_stranglethorn
+    left_portrait:
+      character: root
+      animation: personality_bold
+    title: "Titre de l'event"
+    desc: "Description narrative principale."
+    options:
+      - key: a
+        label: "Option principale"
+        flavor: "Texte de saveur."
+        effects:
+          - add_prestige: medium_prestige_gain
+        ai_chance: 100
+      - key: b
+        label: "Option alternative (non-canon)"
+        ai_chance: 0
+        fallback: yes

@@ -1,0 +1,31 @@
+# Template 2xxx — Event aléatoire (pendant guerre / story cycle actif)
+# mean_time_to_happen : 12 = fréquent, 24 = modéré, 36+ = rare.
+
+namespace: wc_bleeding_hollow_invasion
+theme: martial
+content_source: dlc_GOA
+
+events:
+  - id: 2000
+    type: character_event
+    background: wc_background_stranglethorn
+    left_portrait:
+      character: root
+      animation: thinking
+    title: "Titre de l'event aléatoire"
+    desc: "Description. Se produit pendant la guerre ou le story cycle."
+    mean_time_to_happen:
+      months: 24
+    trigger:
+      - "has_active_story = story_horde_invasion"
+    options:
+      - key: a
+        label: "Option principale"
+        flavor: "Texte de saveur."
+        effects:
+          - add_prestige: medium_prestige_gain
+        ai_chance: 100
+      - key: b
+        label: "Option alternative (non-canon)"
+        ai_chance: 0
+        fallback: yes

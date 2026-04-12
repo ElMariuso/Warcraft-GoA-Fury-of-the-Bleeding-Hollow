@@ -10,8 +10,10 @@ task_plan.md
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 
 # Générés (reproductibles via les scripts tools/)
 docs/wiki-paradox/

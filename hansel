@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Wrapper court pour hansel-tools/cli.py
+# Usage : ./hansel doc triggers
+#         ./hansel search "ai_chance"
+#         ./hansel --help
+cd "$(dirname "$0")"
+exec python hansel-tools/cli.py "$@"

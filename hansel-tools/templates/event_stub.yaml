@@ -1,0 +1,45 @@
+# Template générique — pour un nouveau namespace de zéro.
+# Préférer les templates typés pour les events courants :
+#   event_unique.yaml    → 100x (one-shot, notification)
+#   event_aleatoire.yaml → 200x (aléatoire, pendant guerre/event)
+# Lance : python tools/generate_events.py tools/templates/event_stub.yaml
+# Les fichiers générés sont des points de départ — édite-les directement après génération.
+
+namespace: wc_bleeding_hollow_invasion
+theme: bleeding_hollow
+content_source: dlc_GOA
+
+events:
+  - id: 2001
+    type: character_event
+    background: wc_background_stranglethorn
+    left_portrait:
+      character: root
+      animation: personality_bold
+    title: "Les tribus se rallient"
+    desc: "Placeholder — à rédiger."
+    options:
+      - key: a
+        label: "En avant !"
+        flavor: "Lok'tar Ogar !"
+        effects:
+          - add_prestige: medium_prestige_gain
+        ai_chance: 200
+      - key: b
+        label: "Attendre et observer"
+        ai_chance: 50
+
+  - id: 2002
+    type: character_event
+    background: wc_background_stranglethorn
+    left_portrait:
+      character: root
+      animation: thinking
+    title: "Un choix difficile"
+    desc: "Placeholder — à rédiger."
+    mean_time_to_happen:
+      months: 12
+    options:
+      - key: a
+        label: "Agir maintenant"
+        ai_chance: 100
