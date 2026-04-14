@@ -809,29 +809,11 @@ wc_bleeding_hollow_invasion.2000 = {
 		animation = war_defender
 	}
 	lower_right_portrait = {
-		character = scope:story_owner
+		character = scope:bleeding_hollow_owner
 	}
 
 	immediate = {
 		root = { add_character_flag = asked_to_join_the_war }
-
-		title:k_gurubashi.holder = {
-			random_war = {
-				limit = {
-					OR = {
-						AND = {
-							attacker = prev
-							defender = scope:story_owner
-						}
-						AND = {
-							attacker = scope:story_owner
-							defender = prev
-						}
-					}
-				}
-				save_scope_as = gurubashi_war
-			}
-		}
 	}
 
 	option = {

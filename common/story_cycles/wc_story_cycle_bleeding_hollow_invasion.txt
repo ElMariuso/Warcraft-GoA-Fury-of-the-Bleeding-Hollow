@@ -43,14 +43,17 @@ story_bleeding_hollow_invasion = {
 
 		triggered_effect = {
 			trigger = { always = yes }
+
 			effect = {
+				story_owner = { save_scope_as = bleeding_hollow_owner }
+
 				random_ruler = {
 					limit = {
 						NOT = {
 							has_character_flag = asked_to_join_the_war
-							is_at_war = story_owner
+							is_at_war_with = scope:bleeding_hollow_owner
 						}
-						capital_province = { geographical_region = { world_eastern_kingdoms_azeroth_stranglethorn } }
+						capital_province = { geographical_region = world_eastern_kingdoms_azeroth_stranglethorn }
 					}
 
 					trigger_event = wc_bleeding_hollow_invasion.2000
